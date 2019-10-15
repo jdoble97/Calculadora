@@ -19,11 +19,12 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txCajaOperaciones"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
                 android:layout_span="4"
-                android:textSize="30sp" />
+                android:gravity="end"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
@@ -31,12 +32,13 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tvCajaResultado"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="105dp"
                 android:layout_span="4"
-                android:text="8"
-                android:textSize="70sp" />
+                android:gravity="end"
+                android:hint="0"
+                android:textSize="40sp" />
         </TableRow>
 
         <TableRow
@@ -44,31 +46,35 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btM"
+                android:id="@+id/btMemoria"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="accionesBotonesM"
                 android:text="M"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btMsu"
+                android:id="@+id/btMsuma"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="accionesBotonesM"
                 android:text="M +"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btMmen"
+                android:id="@+id/btMresta"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="accionesBotonesM"
                 android:text="M -"
                 android:textSize="28sp"
                 tools:text="M -" />
 
             <Button
-                android:id="@+id/btMr"
+                android:id="@+id/btMreiniciar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="accionesBotonesM"
                 android:text="MR"
                 android:textSize="28sp" />
         </TableRow>
@@ -82,28 +88,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="AC"
-                android:textSize="28sp"
-                tools:text="C" />
+                android:onClick="limpiarCajas"
+                android:textSize="28sp"/>
 
             <Button
-                android:id="@+id/btConv"
+                android:id="@+id/btCambiar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="+ / -"
+                android:text="+/-"
+                android:onClick="operaciones"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btPor"
+                android:id="@+id/btPorcentaje"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="%"
+                android:onClick="operaciones"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btDiv"
+                android:id="@+id/btDivision"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="/"
+                android:onClick="operaciones"
                 android:textSize="28sp" />
         </TableRow>
 
@@ -112,10 +121,11 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/bt9"
+                android:id="@+id/bt7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="9"
+                android:text="7"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
@@ -123,20 +133,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="8"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/bt7"
+                android:id="@+id/bt9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="7"
+                android:text="9"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btMult"
+                android:id="@+id/btMultiplicar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="x"
+                android:onClick="operaciones"
                 android:textSize="28sp" />
         </TableRow>
 
@@ -145,10 +158,11 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/bt6"
+                android:id="@+id/bt4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="6"
+                android:text="4"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
@@ -156,20 +170,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="5"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/bt4"
+                android:id="@+id/bt6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="4"
+                android:text="6"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btSum"
+                android:id="@+id/btSuma"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="+"
+                android:onClick="operaciones"
                 android:textSize="28sp" />
         </TableRow>
 
@@ -178,10 +195,12 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/bt3"
+                android:id="@+id/bt1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="3"
+                android:hint="0"
+                android:onClick="ingresarNumeros"
+                android:text="1"
                 android:textSize="28sp" />
 
             <Button
@@ -189,20 +208,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="2"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/bt1"
+                android:id="@+id/bt3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="1"
+                android:text="3"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
-                android:id="@+id/btRes"
+                android:id="@+id/btResta"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="-"
+                android:onClick="operaciones"
                 android:textSize="28sp" />
         </TableRow>
 
@@ -216,13 +238,15 @@
                 android:layout_height="match_parent"
                 android:layout_span="2"
                 android:text="0"
+                android:onClick="ingresarNumeros"
                 android:textSize="28sp" />
 
             <Button
                 android:id="@+id/btPunto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="."
+                android:onClick="ingresarNumeros"
+                android:text="@string/punto"
                 android:textSize="28sp" />
 
             <Button
@@ -230,6 +254,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="="
+                android:onClick="operaciones"
                 android:textSize="28sp" />
         </TableRow>
     </TableLayout>

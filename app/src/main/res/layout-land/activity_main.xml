@@ -19,7 +19,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txCajaOperaciones"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="4"
@@ -31,7 +31,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tvCajaResultado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="4"
