@@ -31,8 +31,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btSuma:
                 cajaOperaciones.setText(cajaResultado.getText().toString()+" + ");
                 cajaResultado.setText("");
-                operaciones.setTipo("suma");
-                if(operaciones.getOperador1() is empty)
+
+                if((operaciones.getOperador1()).equals("")){
+
+                }else{
+
+                }
+
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
