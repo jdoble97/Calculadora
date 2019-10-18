@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     TextView cajaOperaciones;
     TextView cajaResultado;
     String Resultado="varResultado";
+    private Operacion operaciones = new Operacion();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btSuma:
                 cajaOperaciones.setText(cajaResultado.getText().toString()+" + ");
                 cajaResultado.setText("");
+                operaciones.setTipo("suma");
+                if(operaciones.getOperador1() is empty)
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btResta:
                 cajaOperaciones.setText(cajaResultado.getText().toString()+" - ");
                 cajaResultado.setText("");
+                operaciones.setTipo("resta");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btMultiplicar:
                 cajaOperaciones.setText(cajaResultado.getText().toString()+" x ");
                 cajaResultado.setText("");
+                operaciones.setTipo("multiplicacion");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -50,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btDivision:
                 cajaOperaciones.setText(cajaResultado.getText().toString()+" / ");
                 cajaResultado.setText("");
+                operaciones.setTipo("division");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -140,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void comprobarSignos(){
+
+    }
+    public void sumar(){
 
     }
 }
