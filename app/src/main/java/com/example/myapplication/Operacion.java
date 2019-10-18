@@ -6,7 +6,7 @@ public class Operacion {
     private float memoria;
     private String resultado;
     private String tipo;
-    private String simboloOpreacion;
+    private String simbolo;
 
     public Operacion(){
         operador1 = "";
@@ -55,15 +55,34 @@ public class Operacion {
         this.tipo = tipo;
     }
 
-    public void setSimboloOpreacion(String temp){this.simboloOpreacion="temp";}
+    public void setSimbolo(String temp){this.simbolo=temp;}
 
-    public String getSimboloOpreacion(){
-        return this.simboloOpreacion;
+    public String getSimbolo(){
+        return this.simbolo;
     }
 
     public String toString(){
 
-        return this.operador1+" "+this.simboloOpreacion+" "+this.operador2;
+        return this.operador1+" "+this.simbolo+" "+this.operador2+"=";
+    }
+
+    public String getOperacion(){
+        String result="";
+        switch(simbolo){
+            case "+":
+                int operacion = Integer.parseInt(operador1)+Integer.parseInt(operador2);
+                result = Integer.toString(operacion);
+                break;
+            case "-":
+                break;
+            case "*":
+                break;
+            case "/":
+                break;
+            case "%":
+                break;
+        }
+        return result;
     }
 
 }
