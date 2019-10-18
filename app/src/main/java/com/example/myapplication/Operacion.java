@@ -6,7 +6,7 @@ public class Operacion {
     private float memoria;
     private String resultado;
     private String tipo;
-
+    private String simboloOpreacion;
 
     public Operacion(){
         operador1 = "";
@@ -38,5 +38,12 @@ public class Operacion {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public void setSimboloOpreacion(String temp){this.simboloOpreacion="temp";}
+
+    public String toString(){
+
+        return this.operador1+" "+this.simboloOpreacion+" "+this.operador2;
     }
 }
