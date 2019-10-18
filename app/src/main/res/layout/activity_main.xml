@@ -167,10 +167,10 @@
 
             <Button
                 android:id="@+id/bt5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="5"
                 android:onClick="ingresarNumeros"
+                android:text="5"
                 android:textSize="28sp" />
 
             <Button
