@@ -9,10 +9,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView cajaOperaciones;
-    TextView cajaResultado;
-    String Resultado="varResultado";
+    private TextView cajaOperaciones;
+    private TextView cajaResultado;
+    private String Resultado="varResultado";
     private Operacion operaciones = new Operacion();
+    private float Memoria;
 
 
     @Override
@@ -136,11 +137,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void accionesBotonesM(View click) {
         switch (click.getId()){
+            //establecemos los valores en memoria
             case R.id.btMemoria:
-                mostrarResultado("Ingresar en Memoria");
+                if(cajaResultado.getText().toString().isEmpty()){
+                    operaciones.setMemoria(0);
+                }
+                else{
+                    //operaciones.setMemoria((float)cajaResultado.getText());
+                }
                 break;
             case R.id.btMsuma:
-                mostrarResultado("Sumar memoria mas");
+
                 break;
             case R.id.btMresta:
                 mostrarResultado("Restar memoria mas");

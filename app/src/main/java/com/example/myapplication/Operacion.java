@@ -56,10 +56,15 @@ public class Operacion {
     }
 
     public void setSimboloOpreacion(String simbolo){this.simboloOpreacion=simbolo;}
-
-    public String getSimboloOpreacion(){
-        return this.simboloOpreacion;
-    }
+/**
+ * Retorna
+ * return String
+ * */
+    public String getSimboloOpreacion(){return this.simboloOpreacion;}
+/***
+ * muestra los contenidos del primer digito1, simbolo, digito2
+ * return string
+ */
 
     public String toString(){
 
