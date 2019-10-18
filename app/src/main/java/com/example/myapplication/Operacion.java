@@ -55,7 +55,11 @@ public class Operacion {
         this.tipo = tipo;
     }
 
+<<<<<<< HEAD
     public void setSimbolo(String temp){this.simbolo=temp;}
+=======
+    public void setSimboloOpreacion(String simbolo){this.simboloOpreacion=simbolo;}
+>>>>>>> df863a827de1f78dd4e8bbf7112d23012de43331
 
     public String getSimbolo(){
         return this.simbolo;
