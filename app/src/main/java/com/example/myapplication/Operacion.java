@@ -42,8 +42,13 @@ public class Operacion {
 
     public void setSimboloOpreacion(String temp){this.simboloOpreacion="temp";}
 
+    public String getSimboloOpreacion(){
+        return this.simboloOpreacion;
+    }
+
     public String toString(){
 
         return this.operador1+" "+this.simboloOpreacion+" "+this.operador2;
     }
+
 }
