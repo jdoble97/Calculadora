@@ -30,15 +30,16 @@ public class MainActivity extends AppCompatActivity {
                 mostrarResultado("Porcentaje");
                 break;
             case R.id.btSuma:
-                cajaOperaciones.setText(cajaResultado.getText().toString()+" + ");
-                cajaResultado.setText("");
-
                 if((operaciones.getOperador1()).equals("")){
-
+                    operaciones.setOperador1(cajaResultado.getText().toString());
+                    operaciones.setTipo("suma");
+                    operaciones.setSimbolo("+");
                 }else{
-
+                    operaciones.setTipo("suma");
+                    operaciones.setSimbolo("+");
                 }
-
+                cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
+                cajaResultado.setText("");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -75,9 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.btIgual:
-                mostrarResultado(this.Resultado);
+
                 break;
         }
+    }
+
+    public void hacerOperacion(View v){
+        operaciones.setOperador2(cajaResultado.getText().toString());
+        int prueba = Integer.parseInt(operaciones.getOperador1())+
+                Integer.parseInt(operaciones.getOperador2());
+        cajaOperaciones.setText(operaciones.toString());
+        cajaResultado.setText(operaciones.getOperacion());
     }
 
     public void limpiarCajas(View click){
