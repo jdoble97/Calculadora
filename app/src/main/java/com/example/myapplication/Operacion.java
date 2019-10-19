@@ -116,9 +116,15 @@ public class Operacion {
         }
 
     }
-    public String getRessultadoPorcentaje(){
-
-        return resultado;
+    public String getResultadoPorcentaje(){
+        if(idioma.equals(",")){
+            resultado=getResultado();
+            puntoToComa();
+            return resultado;
+        }
+        else{
+            return resultado;
+        }
     }
     /**
      * cambia comas(,) por un puntos en los operadores cuando esta en español
