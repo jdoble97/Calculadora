@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public void operaciones(View click){
         switch (click.getId()){
             case R.id.btPorcentaje:
-                mostrarResultado("Porcentaje");
+                //mostrarResultado("Porcentaje");
                 break;
             case R.id.btSuma:
                 sumar();
@@ -74,20 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void hacerOperacion(View v){
         operaciones.setOperador2(cajaResultado.getText().toString());
-        int prueba = Integer.parseInt(operaciones.getOperador1())+
-                Integer.parseInt(operaciones.getOperador2());
         cajaOperaciones.setText(operaciones.toString());
-        cajaResultado.setText(operaciones.getOperacion());
+        cajaResultado.setText(operaciones.getResultado());
     }
 
     public void limpiarCajas(View click){
         cajaResultado.setText(null);
         cajaOperaciones.setText(null);
-    }
-
-    public void mostrarResultado(String resultado){
-        cajaOperaciones.setText(cajaOperaciones.getText().toString()+cajaResultado.getText().toString());
-        cajaResultado.setText(resultado);
     }
 
     public void ingresarNumeros(View click){
@@ -150,10 +143,10 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.btMresta:
-                mostrarResultado("Restar memoria mas");
+                //mostrarResultado("Restar memoria mas");
                 break;
             case R.id.btMreiniciar:
-                mostrarResultado("Reimiciar memoria");
+                //mostrarResultado("Reimiciar memoria");
                 break;
         }
     }

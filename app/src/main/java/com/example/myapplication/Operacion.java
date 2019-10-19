@@ -31,13 +31,6 @@ public class Operacion {
         this.operador2 = operador2;
     }
 
-    public String getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(String resultado) {
-        this.resultado = resultado;
-    }
 
     public float getMemoria() {
         return memoria;
@@ -91,5 +84,16 @@ public class Operacion {
         }
         return result;
     }
-
+    public String getResultado(){
+        resultado = getOperacion();
+        float numero = Float.parseFloat(resultado);
+        float decimal = numero % 1;
+        if (decimal>0){
+            return resultado;
+        }else{
+            int temporal = (int)numero;
+            resultado = Integer.toString(temporal);
+            return resultado;
+        }
+    }
 }
