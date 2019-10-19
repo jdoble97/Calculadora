@@ -130,23 +130,27 @@ public class MainActivity extends AppCompatActivity {
         if (!cajaRecogida.getText().toString().isEmpty()) {
             operacionesMemoria = Double.parseDouble(cajaRecogida.getText().toString());
         }
+        if(operaciones.getMemoria().equals("")){
+            operaciones.setMemoria("0");
+        }
         switch (click.getId()) {
             //establecemos los valores en memoria
             case R.id.btMemoriaClear:
-                operaciones.setMemoria(0d);
+                operaciones.setMemoria(String.valueOf(0));
                 limpiarCajas(click);
                 break;
             case R.id.btMsuma:
-                operacionesMemoria = operacionesMemoria + operaciones.getMemoria();
-                operaciones.setMemoria(operacionesMemoria);
+                operacionesMemoria=operacionesMemoria+Double.parseDouble(operaciones.getMemoria());
+                operaciones.setMemoria(String.valueOf(operacionesMemoria));
+                limpiarCajas(click);
                 break;
             case R.id.btMresta:
-                operacionesMemoria = operaciones.getMemoria() - operacionesMemoria;
-                operaciones.setMemoria(operacionesMemoria);
+                operacionesMemoria=Double.parseDouble(operaciones.getMemoria())-operacionesMemoria;
+                operaciones.setMemoria(String.valueOf(operacionesMemoria));
+                limpiarCajas(click);
                 break;
-
             case R.id.btMmostar:
-                cajaOperaciones.setText(Double.toString(operaciones.getMemoria()));
+                    cajaOperaciones.setText(operaciones.getMemoria());
                 break;
         }
     }
@@ -166,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             cajaRecogida.setText("");
         }
     }
-    //si no esta vacia, opeccion
+
 
     public void cambiarSigno(View view) {
         String numeroSigno = cajaRecogida.getText().toString();
@@ -190,6 +194,5 @@ public class MainActivity extends AppCompatActivity {
             cajaRecogida.setText("");
         }
         operaciones.vaciar();
-
     }
 }

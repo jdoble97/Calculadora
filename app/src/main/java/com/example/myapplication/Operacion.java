@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class Operacion {
     private String operador2;
     private String operador1;
-    private Double memoria;
+    private String memoria;
     private String resultado;
     private String simbolo;
     private String idioma;
@@ -14,14 +14,25 @@ public class Operacion {
         operador1 = "";
         operador2 = "";
         resultado = "";
-        memoria = 0d;
+        memoria = "";
     }
 
-    public Double getMemoria() {
-        return memoria;
+    public String getMemoria() {
+        double numero = Double.parseDouble(this.memoria);
+        double decimal = numero % 1;
+        if (decimal>0 || decimal<0){
+            if(idioma.equals(",")){
+                this.memoria=this.memoria.replace(".",",");
+            }
+            return this.memoria;
+        }else{
+            int temporal = (int)numero;
+            this.memoria = Integer.toString(temporal);
+            return this.memoria;
+        }
     }
 
-    public void setMemoria(Double memoria) {
+    public void setMemoria(String memoria) {
         this.memoria = memoria;
     }
 /**
@@ -106,10 +117,9 @@ public class Operacion {
             case "%":
                 operacion = Double.parseDouble(operador1)/100;
                 result = Double.toString(operacion);
-
                 break;
         }
-        memoria = (double)operacion;
+        memoria = String.valueOf(operacion);
         return result;
     }
     /**
@@ -129,7 +139,6 @@ public class Operacion {
             resultado = Integer.toString(temporal);
             return resultado;
         }
-
     }
     /**
      * cambia comas(,) por un puntos en los operadores cuando esta en español
