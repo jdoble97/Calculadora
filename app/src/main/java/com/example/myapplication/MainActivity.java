@@ -71,13 +71,13 @@ public class MainActivity extends AppCompatActivity {
  * ademas pone la la variable de coma en false
  * */
     public void hacerOperacion(View v){
-        if(!cajaRecogida.getText().toString().isEmpty()){
+        if(!cajaRecogida.getText().toString().isEmpty() && !operaciones.getOperador1().isEmpty()){
             operaciones.setOperador2(cajaRecogida.getText().toString());
-            cajaOperaciones.setText(operaciones.toString());
-            cajaRecogida.setText(null);
+            cajaOperaciones.setText(operaciones.getResultado());
+            cajaRecogida.setText("");
+            decimal = true;
+
         }
-
-
     }
 
     public void limpiarCajas(View click){
@@ -94,38 +94,38 @@ public class MainActivity extends AppCompatActivity {
             switch (click.getId()){
 
                 case R.id.bt0:
-                    setRecogida("0");
+                    recogerNumeros("0");
                     break;
                 case R.id.bt1:
-                    setRecogida("1");
+                    recogerNumeros("1");
                     break;
                 case R.id.bt2:
-                    setRecogida("2");
+                    recogerNumeros("2");
                     break;
                 case R.id.bt3:
-                    setRecogida("3");
+                    recogerNumeros("3");
                     break;
                 case R.id.bt4:
-                    setRecogida("4");
+                    recogerNumeros("4");
                     break;
                 case R.id.bt5:
-                    setRecogida("5");
+                    recogerNumeros("5");
                     break;
                 case R.id.bt6:
-                    setRecogida("6");
+                    recogerNumeros("6");
                     break;
                 case R.id.bt7:
-                    setRecogida("7");
+                    recogerNumeros("7");
                     break;
                 case R.id.bt8:
-                    setRecogida("8");
+                    recogerNumeros("8");
                     break;
                 case R.id.bt9:
-                    setRecogida("9");
+                    recogerNumeros("9");
                     break;
                 case R.id.btPunto:
                     if(decimal){
-                        setRecogida(",");
+                        recogerNumeros(",");
                         decimal = false;
                     }
                     break;
@@ -133,10 +133,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
 /**
  * Sigue aumentando los valores despues de cada click de cada número
  * */
-    public void setRecogida(String valor){
+
+    public void recogerNumeros(String valor){
         cajaRecogida.setText(cajaRecogida.getText().toString()+valor);
     }
 
@@ -175,6 +177,5 @@ public class MainActivity extends AppCompatActivity {
         cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
         cajaRecogida.setText("");
     }
-
 
 }
