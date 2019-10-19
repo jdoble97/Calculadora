@@ -36,9 +36,7 @@ public class Operacion {
         return memoria;
     }
 
-    public void setMemoria(float memoria) {
-        this.memoria = memoria;
-    }
+    public void setMemoria(float memoria) { this.memoria = memoria;}
 
     public String getTipo() {
         return tipo;
@@ -48,21 +46,17 @@ public class Operacion {
         this.tipo = tipo;
     }
 
-    public void setSimbolo(String temp){this.simbolo=temp;}
+    public void setSimbolo(String simbolo){this.simbolo=simbolo;}
 
 /**
- * Retorna
- * return String
- * */
-    public String getSimbolo(){return this.simbolo;}
-/***
  * muestra los contenidos del primer digito1, simbolo, digito2
  * return string
  */
-
+    public String getSimbolo(){
+        return this.simbolo;
+    }
 
     public String toString(){
-
         return this.operador1+" "+this.simbolo+" "+this.operador2+"=";
     }
 
@@ -70,8 +64,8 @@ public class Operacion {
         String result="";
         switch(simbolo){
             case "+":
-                double operacion = Double.parseDouble(operador1)+Double.parseDouble(operador2);
-                result = Double.toString(operacion);
+                int operacion = Integer.parseInt(operador1)+Integer.parseInt(operador2);
+                result = Integer.toString(operacion);
                 break;
             case "-":
                 break;

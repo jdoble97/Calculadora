@@ -131,22 +131,28 @@ public class MainActivity extends AppCompatActivity {
     public void accionesBotonesM(View click) {
         switch (click.getId()){
             //establecemos los valores en memoria
-            case R.id.btMemoria:
-                if(cajaResultado.getText().toString().isEmpty()){
-                    operaciones.setMemoria(0);
-                }
-                else{
-                    //operaciones.setMemoria((float)cajaResultado.getText());
-                }
+            case R.id.btMemoriaClear:
+                operaciones.setMemoria(0);
                 break;
             case R.id.btMsuma:
-
+                float sumMemoria= Float.parseFloat(cajaResultado.getText().toString())+ operaciones.getMemoria();
+                operaciones.setMemoria(sumMemoria);
                 break;
             case R.id.btMresta:
+<<<<<<< HEAD
+                float restMemoria= Float.parseFloat(cajaResultado.getText().toString())- operaciones.getMemoria();
+                operaciones.setMemoria(restMemoria);
+                cajaOperaciones.setText("M+");
+
+                break;
+            case R.id.btMmostar:
+                cajaResultado.setText(String.valueOf(operaciones.getMemoria()));
+=======
                 //mostrarResultado("Restar memoria mas");
                 break;
             case R.id.btMreiniciar:
                 //mostrarResultado("Reimiciar memoria");
+>>>>>>> b4e0b19392f36e0bd23915e3b61b8b49188e82ce
                 break;
         }
     }

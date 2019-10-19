@@ -46,7 +46,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btMemoria"
+                android:id="@+id/btMemoriaClear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:onClick="accionesBotonesM"
@@ -71,7 +71,7 @@
                 tools:text="M -" />
 
             <Button
-                android:id="@+id/btMreiniciar"
+                android:id="@+id/btMmostar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:onClick="accionesBotonesM"
