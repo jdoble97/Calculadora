@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
  * */
     public void hacerOperacion(View v){
         operaciones.setOperador2(cajaResultado.getText().toString());
+        operaciones.cambiarComa();
         cajaOperaciones.setText(operaciones.toString());
         cajaResultado.setText(operaciones.getResultado());
 

@@ -64,8 +64,8 @@ public class Operacion {
         String result="";
         switch(simbolo){
             case "+":
-                int operacion = Integer.parseInt(operador1)+Integer.parseInt(operador2);
-                result = Integer.toString(operacion);
+                double operacion = Double.parseDouble(operador1)+Double.parseDouble(operador2);
+                result = Double.toString(operacion);
                 break;
             case "-":
                 break;
@@ -80,8 +80,8 @@ public class Operacion {
     }
     public String getResultado(){
         resultado = getOperacion();
-        float numero = Float.parseFloat(resultado);
-        float decimal = numero % 1;
+        double numero = Double.parseDouble(resultado);
+        double decimal = numero % 1;
         if (decimal>0){
             return resultado;
         }else{
