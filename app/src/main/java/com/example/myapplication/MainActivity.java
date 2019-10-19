@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             operaciones.setOperador2(cajaRecogida.getText().toString());
             cajaOperaciones.setText(operaciones.getResultado());
             cajaRecogida.setText("");
+            operaciones.vaciar();
             decimal = true;
         }
     }
