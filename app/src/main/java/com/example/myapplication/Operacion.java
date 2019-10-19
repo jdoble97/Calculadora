@@ -43,9 +43,7 @@ public class Operacion {
         return memoria;
     }
 
-    public void setMemoria(float memoria) {
-        this.memoria = memoria;
-    }
+    public void setMemoria(float memoria) { this.memoria = memoria;}
 
     public String getTipo() {
         return tipo;
@@ -55,30 +53,26 @@ public class Operacion {
         this.tipo = tipo;
     }
 
-<<<<<<< HEAD
-    public void setSimbolo(String temp){this.simbolo=temp;}
-=======
-    public void setSimboloOpreacion(String simbolo){this.simboloOpreacion=simbolo;}
-<<<<<<< HEAD
+    public void setSimbolo(String simbolo){this.simbolo=simbolo;}
 /**
- * Retorna
+ * Establece el simbolo de la operación
+ * */
+    public void setSimboloOpreacion(String simbolo){this.simbolo=simbolo;}
+
+/**
+ * Retorna el simbolo de la operción
  * return String
  * */
-    public String getSimboloOpreacion(){return this.simboloOpreacion;}
-/***
+    public String getSimboloOpreacion(){return this.simbolo;}
+/**
  * muestra los contenidos del primer digito1, simbolo, digito2
  * return string
  */
-=======
->>>>>>> df863a827de1f78dd4e8bbf7112d23012de43331
-
     public String getSimbolo(){
         return this.simbolo;
     }
->>>>>>> 8c97f182bdfaf9b9b87c2f80cd21bfe744f5bd5a
 
     public String toString(){
-
         return this.operador1+" "+this.simbolo+" "+this.operador2+"=";
     }
 
