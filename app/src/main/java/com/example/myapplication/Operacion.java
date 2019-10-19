@@ -62,20 +62,27 @@ public class Operacion {
     }
 
     public String getOperacion(){
+        double operacion;
         String result="";
         if(idioma.equals(",")){
             comaToPunto();
         }
         switch(simbolo){
             case "+":
-                double operacion = Double.parseDouble(operador1)+Double.parseDouble(operador2);
+                operacion = Double.parseDouble(operador1)+Double.parseDouble(operador2);
                 result = Double.toString(operacion);
                 break;
             case "-":
+                operacion = Double.parseDouble(operador1)-Double.parseDouble(operador2);
+                result = Double.toString(operacion);
                 break;
             case "*":
+                operacion = Double.parseDouble(operador1)*Double.parseDouble(operador2);
+                result = Double.toString(operacion);
                 break;
             case "/":
+                operacion = Double.parseDouble(operador1)/Double.parseDouble(operador2);
+                result = Double.toString(operacion);
                 break;
             case "%":
                 break;
@@ -87,7 +94,7 @@ public class Operacion {
         double numero = Double.parseDouble(resultado);
         double decimal = numero % 1;
         if (decimal>0){
-            if(idioma.equals(".")){
+            if(idioma.equals(",")){
                 puntoToComa();
             }
             return resultado;
