@@ -178,5 +178,6 @@ public class MainActivity extends AppCompatActivity {
                 numeroSigno = '-'+cajaRecogida.getText().toString();
             }
         }
+        cajaRecogida.setText(numeroSigno);
     }
 }
