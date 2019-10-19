@@ -27,19 +27,10 @@ public class MainActivity extends AppCompatActivity {
     public void operaciones(View click){
         switch (click.getId()){
             case R.id.btPorcentaje:
-                mostrarResultado("Porcentaje");
+                //mostrarResultado("Porcentaje");
                 break;
             case R.id.btSuma:
-                if((operaciones.getOperador1()).equals("")){
-                    operaciones.setOperador1(cajaResultado.getText().toString());
-                    operaciones.setTipo("suma");
-                    operaciones.setSimbolo("+");
-                }else{
-                    operaciones.setTipo("suma");
-                    operaciones.setSimbolo("+");
-                }
-                cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
-                cajaResultado.setText("");
+                sumar();
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -83,20 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void hacerOperacion(View v){
         operaciones.setOperador2(cajaResultado.getText().toString());
-        int prueba = Integer.parseInt(operaciones.getOperador1())+
-                Integer.parseInt(operaciones.getOperador2());
         cajaOperaciones.setText(operaciones.toString());
-        cajaResultado.setText(operaciones.getOperacion());
+        cajaResultado.setText(operaciones.getResultado());
     }
 
     public void limpiarCajas(View click){
         cajaResultado.setText(null);
         cajaOperaciones.setText(null);
-    }
-
-    public void mostrarResultado(String resultado){
-        cajaOperaciones.setText(cajaOperaciones.getText().toString()+cajaResultado.getText().toString());
-        cajaResultado.setText(resultado);
     }
 
     public void ingresarNumeros(View click){
@@ -155,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 operaciones.setMemoria(sumMemoria);
                 break;
             case R.id.btMresta:
+<<<<<<< HEAD
                 float restMemoria= Float.parseFloat(cajaResultado.getText().toString())- operaciones.getMemoria();
                 operaciones.setMemoria(restMemoria);
                 cajaOperaciones.setText("M+");
@@ -162,6 +147,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btMmostar:
                 cajaResultado.setText(String.valueOf(operaciones.getMemoria()));
+=======
+                //mostrarResultado("Restar memoria mas");
+                break;
+            case R.id.btMreiniciar:
+                //mostrarResultado("Reimiciar memoria");
+>>>>>>> b4e0b19392f36e0bd23915e3b61b8b49188e82ce
                 break;
         }
     }
@@ -170,6 +161,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void sumar(){
-
+        if((operaciones.getOperador1()).equals("")){
+            operaciones.setOperador1(cajaResultado.getText().toString());
+            operaciones.setTipo("suma");
+            operaciones.setSimbolo("+");
+        }else{
+            operaciones.setTipo("suma");
+            operaciones.setSimbolo("+");
+        }
+        cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
+        cajaResultado.setText("");
     }
 }
