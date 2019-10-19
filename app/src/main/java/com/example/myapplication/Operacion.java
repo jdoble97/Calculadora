@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class Operacion {
     private String operador2;
     private String operador1;
-    private float memoria;
+    private Double memoria;
     private String resultado;
     private String simbolo;
     private String idioma;
@@ -14,7 +14,15 @@ public class Operacion {
         operador1 = "";
         operador2 = "";
         resultado = "";
-        memoria = 0;
+        memoria = 0d;
+    }
+
+    public Double getMemoria() {
+        return memoria;
+    }
+
+    public void setMemoria(Double memoria) {
+        this.memoria = memoria;
     }
 /**
  * Obtener el atributo idioma
@@ -53,14 +61,6 @@ public class Operacion {
         this.operador2 = operador2;
     }
 
-
-    public float getMemoria() {
-        return memoria;
-    }
-
-    public void setMemoria(float memoria) { this.memoria = memoria;}
-
-
     public void setSimbolo(String simbolo){this.simbolo=simbolo;}
 
 /**
@@ -70,7 +70,9 @@ public class Operacion {
     public String getSimbolo(){
         return this.simbolo;
     }
-
+/**
+ * muestra llos datos de la operacion
+ * */
     public String toString(){
         return this.operador1+" "+this.simbolo+" "+this.operador2+"=";
     }
@@ -79,7 +81,7 @@ public class Operacion {
  * return String de resultado
  * */
     public String getOperacion(){
-        double operacion;
+        double operacion = 0d;
         String result="";
         if(idioma.equals(",")){
             comaToPunto();
@@ -103,10 +105,11 @@ public class Operacion {
                 break;
             case "%":
                 operacion = Double.parseDouble(operador1)/100;
-                resultado = Double.toString(operacion);
+                result = Double.toString(operacion);
 
                 break;
         }
+        memoria = (double)operacion;
         return result;
     }
     /**
@@ -129,20 +132,6 @@ public class Operacion {
 
     }
     /**
-     * Devuelve el resultado para el porcentaje
-     * return String
-     * */
-    public String getResultadoPorcentaje(){
-        if(idioma.equals(",")){
-            resultado=getResultado();
-            puntoToComa();
-            return resultado;
-        }
-        else{
-            return resultado;
-        }
-    }
-    /**
      * cambia comas(,) por un puntos en los operadores cuando esta en español
      * */
     public void comaToPunto(){
@@ -159,5 +148,6 @@ public class Operacion {
         operador1 = "";
         operador2 = "";
         simbolo   = "";
+        resultado = "";
     }
 }
