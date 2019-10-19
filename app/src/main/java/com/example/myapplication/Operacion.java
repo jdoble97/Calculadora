@@ -85,6 +85,7 @@ public class Operacion {
                 result = Double.toString(operacion);
                 break;
             case "%":
+
                 break;
         }
         return result;
