@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
     public void limpiarCajas(View click){
         cajaRecogida.setText("");
         cajaOperaciones.setText("");
-        operaciones=null;
     }
 
     /**
