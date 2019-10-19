@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="punto">.</string>
+    <string name="app_name">Calculadora</string>
+    <string name="punto">,</string>
 </resources>
