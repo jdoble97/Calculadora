@@ -16,19 +16,31 @@ public class Operacion {
         resultado = "";
         memoria = 0;
     }
-
+/**
+ * Obtener el atributo idioma
+ * return String de idioma
+ * */
     public String getIdioma() {
         return idioma;
     }
-
+/**
+ * Establecer atributo el idioma
+ * parametro String
+ * */
     public void setIdioma(String idioma) {
         this.idioma = idioma;
     }
-
+    /**
+     * Obtener el atributo operador1
+     * return String
+     * */
     public String getOperador1() {
         return operador1;
     }
-
+    /**
+     * Establecer atributo el operador1
+     * parametro String
+     * */
     public void setOperador1(String operador1) {
         this.operador1 = operador1;
     }
@@ -116,6 +128,10 @@ public class Operacion {
         }
 
     }
+    /**
+     * Devuelve el resultado para el porcentaje
+     * return String
+     * */
     public String getResultadoPorcentaje(){
         if(idioma.equals(",")){
             resultado=getResultado();

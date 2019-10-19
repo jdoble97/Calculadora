@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btSuma:
                 tipoOperacion("+");
-                //deberiamos volcar el resultado de la operacion en la variable resultado
                 break;
             case R.id.btResta:
                 tipoOperacion("-");
