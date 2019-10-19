@@ -112,4 +112,9 @@ public class Operacion {
     public void puntoToComa(){
         resultado = resultado.replace(".",",");
     }
+    public void vaciar(){
+        operador1 = "";
+        operador2 = "";
+        simbolo   = "";
+    }
 }
