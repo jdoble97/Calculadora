@@ -28,13 +28,12 @@ public class MainActivity extends AppCompatActivity {
         punto = findViewById(R.id.btPunto);
         lenguaje = punto.getText().toString();
         operaciones.setIdioma(lenguaje);
-
     }
 
     public void operaciones(View click){
         switch (click.getId()){
             case R.id.btPorcentaje:
-                //mostrarResultado("Porcentaje");
+                tipoOperacion("%");
                 break;
             case R.id.btSuma:
                 tipoOperacion("+");
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btIgual:
                 break;
+
         }
     }
 /**
@@ -179,5 +179,6 @@ public class MainActivity extends AppCompatActivity {
             cajaRecogida.setText("");
         }
     }
+    //si no esta vacia, opeccion
 
 }

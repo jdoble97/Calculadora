@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import java.text.DecimalFormat;
+
 public class Operacion {
     private String operador2;
     private String operador1;
@@ -60,7 +62,10 @@ public class Operacion {
     public String toString(){
         return this.operador1+" "+this.simbolo+" "+this.operador2+"=";
     }
-
+/**
+ * Devuelve un String despues de Realizar suma, resta, multimplicacion
+ * return String de resultado
+ * */
     public String getOperacion(){
         double operacion;
         String result="";
@@ -85,11 +90,16 @@ public class Operacion {
                 result = Double.toString(operacion);
                 break;
             case "%":
+                operacion = Double.parseDouble(operador1)/100;
+                resultado = Double.toString(operacion);
 
                 break;
         }
         return result;
     }
+    /**
+     * recibo el resultado en String, lo parceo a double,
+     * */
     public String getResultado(){
         resultado = getOperacion();
         double numero = Double.parseDouble(resultado);
@@ -104,12 +114,22 @@ public class Operacion {
             resultado = Integer.toString(temporal);
             return resultado;
         }
+
     }
+    public String getRessultadoPorcentaje(){
+
+        return resultado;
+    }
+    /**
+     * cambia comas(,) por un puntos en los operadores cuando esta en español
+     * */
     public void comaToPunto(){
         operador1 = operador1.replace(",",".");
         operador2 = operador2.replace(",",".");
     }
-
+    /**
+     * Cambia puntos por comas
+     * */
     public void puntoToComa(){
         resultado = resultado.replace(".",",");
     }
