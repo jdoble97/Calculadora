@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         switch (click.getId()) {
             case R.id.btPorcentaje:
                 tipoOperacion("%");
+                cajaOperaciones.setText(operaciones.getResultadoPorcentaje());
                 break;
             case R.id.btSuma:
                 tipoOperacion("+");
