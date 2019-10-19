@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private String Resultado="varResultado";
     private Operacion operaciones = new Operacion();
     private float Memoria;
+    private boolean decimal= true;
 
 
     @Override
@@ -71,11 +72,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
+/**
+ * realiza las operaciones en la clase y muestra la operacion en las cajas
+ * ademas pone la la variable de coma en false
+ * */
     public void hacerOperacion(View v){
         operaciones.setOperador2(cajaResultado.getText().toString());
         cajaOperaciones.setText(operaciones.toString());
         cajaResultado.setText(operaciones.getResultado());
+
     }
 
     public void limpiarCajas(View click){
@@ -91,41 +96,48 @@ public class MainActivity extends AppCompatActivity {
             cajaResultado.setText("0");
             cajaOperaciones.setText("0");
         }
-        switch (click.getId()){
-            case R.id.bt0:
-                cajaResultado.setText(cajaResultado.getText().toString()+"0");
-                break;
-            case R.id.bt1:
-                cajaResultado.setText(cajaResultado.getText().toString()+"1");
-                break;
-            case R.id.bt2:
-                cajaResultado.setText(cajaResultado.getText().toString()+"2");
-                break;
-            case R.id.bt3:
-                cajaResultado.setText(cajaResultado.getText().toString()+"3");
-                break;
-            case R.id.bt4:
-                cajaResultado.setText(cajaResultado.getText().toString()+"4");
-                break;
-            case R.id.bt5:
-                cajaResultado.setText(cajaResultado.getText().toString()+"5");
-                break;
-            case R.id.bt6:
-                cajaResultado.setText(cajaResultado.getText().toString()+"6");
-                break;
-            case R.id.bt7:
-                cajaResultado.setText(cajaResultado.getText().toString()+"7");
-                break;
-            case R.id.bt8:
-                cajaResultado.setText(cajaResultado.getText().toString()+"8");
-                break;
-            case R.id.bt9:
-                cajaResultado.setText(cajaResultado.getText().toString()+"9");
-                break;
-            case R.id.btPunto:
-                cajaResultado.setText(cajaResultado.getText().toString()+",");
-                break;
-        }
+
+            switch (click.getId()){
+
+                case R.id.bt0:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"0");
+                    break;
+                case R.id.bt1:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"1");
+                    break;
+                case R.id.bt2:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"2");
+                    break;
+                case R.id.bt3:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"3");
+                    break;
+                case R.id.bt4:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"4");
+                    break;
+                case R.id.bt5:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"5");
+                    break;
+                case R.id.bt6:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"6");
+                    break;
+                case R.id.bt7:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"7");
+                    break;
+                case R.id.bt8:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"8");
+                    break;
+                case R.id.bt9:
+                    cajaResultado.setText(cajaResultado.getText().toString()+"9");
+                    break;
+                case R.id.btPunto:
+                    if(decimal){
+                        cajaResultado.setText(cajaResultado.getText().toString() + ",");
+                        decimal = false;
+                    }
+
+                    break;
+            }
+
     }
 
     public void accionesBotonesM(View click) {
@@ -146,25 +158,22 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btMmostar:
                 cajaResultado.setText(String.valueOf(operaciones.getMemoria()));
-                //mostrarResultado("Restar memoria mas");
                 break;
-
         }
     }
 
-    public void comprobarSignos(){
-
-    }
     public void sumar(){
         if((operaciones.getOperador1()).equals("")){
             operaciones.setOperador1(cajaResultado.getText().toString());
             operaciones.setTipo("suma");
             operaciones.setSimbolo("+");
+            this.decimal=true;
         }else{
             operaciones.setTipo("suma");
             operaciones.setSimbolo("+");
         }
         cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
         cajaResultado.setText("");
+
     }
 }
