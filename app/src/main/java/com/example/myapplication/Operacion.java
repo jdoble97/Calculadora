@@ -56,13 +56,7 @@ public class Operacion {
     }
 
     public void setSimbolo(String temp){this.simbolo=temp;}
-<<<<<<< HEAD
 
-
-=======
-=======
-    public void setSimboloOpreacion(String simbolo){this.simboloOpreacion=simbolo;}
-<<<<<<< HEAD
 /**
  * Retorna
  * return String
@@ -72,14 +66,7 @@ public class Operacion {
  * muestra los contenidos del primer digito1, simbolo, digito2
  * return string
  */
-=======
->>>>>>> df863a827de1f78dd4e8bbf7112d23012de43331
->>>>>>> ae5d45447203b34c75749cceba80af80fad9246a
 
-    public String getSimbolo(){
-        return this.simbolo;
-    }
->>>>>>> 8c97f182bdfaf9b9b87c2f80cd21bfe744f5bd5a
 
     public String toString(){
 
