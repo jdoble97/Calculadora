@@ -91,8 +91,7 @@ public class Operacion {
         }
     }
     public void cambiarComa(){
-        if(operador1.isEmpty()){
-
-        }
+        operador1 = operador1.replace(",",".");
+        operador2 = operador2.replace(",",".");
     }
 }
