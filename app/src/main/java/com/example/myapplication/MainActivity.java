@@ -146,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btMmostar:
                 cajaResultado.setText(String.valueOf(operaciones.getMemoria()));
-
                 break;
         }
     }
