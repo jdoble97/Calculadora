@@ -61,7 +61,7 @@ public class Operacion {
  * Retorna
  * return String
  * */
-    public String getSimboloOpreacion(){return this.simboloOpreacion;}
+    public String getSimbolo(){return this.simbolo;}
 /***
  * muestra los contenidos del primer digito1, simbolo, digito2
  * return string
