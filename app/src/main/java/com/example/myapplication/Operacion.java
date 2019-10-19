@@ -96,4 +96,9 @@ public class Operacion {
             return resultado;
         }
     }
+    public void cambiarComa(){
+        if(operador1.isEmpty()){
+
+        }
+    }
 }
