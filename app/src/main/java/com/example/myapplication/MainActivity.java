@@ -61,11 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 cajaOperaciones.setText("-"+cajaRecogida.getText().toString());
                 cajaRecogida.setText("");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
-
-
                 break;
             case R.id.btIgual:
-
                 break;
         }
     }
@@ -77,22 +74,23 @@ public class MainActivity extends AppCompatActivity {
         if(!cajaRecogida.getText().toString().isEmpty()){
             operaciones.setOperador2(cajaRecogida.getText().toString());
             cajaOperaciones.setText(operaciones.toString());
-            cajaRecogida.setText(operaciones.getResultado());
+            cajaRecogida.setText(null);
         }
 
 
     }
 
     public void limpiarCajas(View click){
-        cajaRecogida.setText(null);
-        cajaOperaciones.setText(null);
+        cajaRecogida.setText("");
+        cajaOperaciones.setText("");
+        operaciones=null;
     }
 
+    /**
+     * deberiamos crear un array con las operaciones y seguire
+     * realizando los calculos con un array de numeros para calclularlo.
+     * */
     public void ingresarNumeros(View click){
-        /*deberiamos crear un array con las operaciones y seguire
-          realizando los calculos con un array de numeros para calclularlos
-        */
-
             switch (click.getId()){
 
                 case R.id.bt0:
@@ -130,12 +128,14 @@ public class MainActivity extends AppCompatActivity {
                         setRecogida(",");
                         decimal = false;
                     }
-
                     break;
             }
 
     }
 
+/**
+ * Sigue aumentando los valores despues de cada click de cada número
+ * */
     public void setRecogida(String valor){
         cajaRecogida.setText(cajaRecogida.getText().toString()+valor);
     }
