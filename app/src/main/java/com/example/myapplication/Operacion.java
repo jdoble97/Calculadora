@@ -5,14 +5,22 @@ public class Operacion {
     private String operador1;
     private float memoria;
     private String resultado;
-    private String tipo;
     private String simbolo;
+    private String idioma;
 
     public Operacion(){
         operador1 = "";
         operador2 = "";
         resultado = "";
         memoria = 0;
+    }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
     }
 
     public String getOperador1() {
@@ -38,13 +46,6 @@ public class Operacion {
 
     public void setMemoria(float memoria) { this.memoria = memoria;}
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public void setSimbolo(String simbolo){this.simbolo=simbolo;}
 
@@ -62,6 +63,9 @@ public class Operacion {
 
     public String getOperacion(){
         String result="";
+        if(idioma.equals(",")){
+            comaToPunto();
+        }
         switch(simbolo){
             case "+":
                 double operacion = Double.parseDouble(operador1)+Double.parseDouble(operador2);
@@ -83,6 +87,9 @@ public class Operacion {
         double numero = Double.parseDouble(resultado);
         double decimal = numero % 1;
         if (decimal>0){
+            if(idioma.equals(".")){
+                puntoToComa();
+            }
             return resultado;
         }else{
             int temporal = (int)numero;
@@ -90,8 +97,12 @@ public class Operacion {
             return resultado;
         }
     }
-    public void cambiarComa(){
+    public void comaToPunto(){
         operador1 = operador1.replace(",",".");
         operador2 = operador2.replace(",",".");
+    }
+
+    public void puntoToComa(){
+        resultado = resultado.replace(".",",");
     }
 }

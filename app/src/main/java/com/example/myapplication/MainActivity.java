@@ -10,11 +10,13 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView cajaOperaciones;
-    private TextView cajaResultado;
+    private TextView cajaRecogida;
     private String Resultado="varResultado";
     private Operacion operaciones = new Operacion();
     private float Memoria;
     private boolean decimal= true;
+    private String lenguaje;
+    private Button punto;
 
 
     @Override
@@ -22,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cajaOperaciones= (TextView) findViewById(R.id.txCajaOperaciones);
-        cajaResultado=(TextView) findViewById(R.id.tvCajaResultado);
+        cajaRecogida=(TextView) findViewById(R.id.txCajaRecogida);
+        punto = findViewById(R.id.btPunto);
+        lenguaje = punto.getText().toString();
+        operaciones.setIdioma(lenguaje);
+
     }
 
     public void operaciones(View click){
@@ -31,38 +37,29 @@ public class MainActivity extends AppCompatActivity {
                 //mostrarResultado("Porcentaje");
                 break;
             case R.id.btSuma:
-                sumar();
+                tipoOperacion("+");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
                 break;
             case R.id.btResta:
-                cajaOperaciones.setText(cajaResultado.getText().toString()+" - ");
-                cajaResultado.setText("");
-                operaciones.setTipo("resta");
-                //deberiamos volcar el resultado de la operacion en la variable resultado
+                tipoOperacion("-");
 
 
                 break;
             case R.id.btMultiplicar:
-                cajaOperaciones.setText(cajaResultado.getText().toString()+" x ");
-                cajaResultado.setText("");
-                operaciones.setTipo("multiplicacion");
-                //deberiamos volcar el resultado de la operacion en la variable resultado
+                tipoOperacion("*");
 
 
                 break;
             case R.id.btDivision:
-                cajaOperaciones.setText(cajaResultado.getText().toString()+" / ");
-                cajaResultado.setText("");
-                operaciones.setTipo("division");
-                //deberiamos volcar el resultado de la operacion en la variable resultado
+                tipoOperacion("/");
 
 
                 break;
             case R.id.btCambiar:
-                cajaOperaciones.setText("-"+cajaResultado.getText().toString());
-                cajaResultado.setText("");
+                cajaOperaciones.setText("-"+cajaRecogida.getText().toString());
+                cajaRecogida.setText("");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -77,15 +74,17 @@ public class MainActivity extends AppCompatActivity {
  * ademas pone la la variable de coma en false
  * */
     public void hacerOperacion(View v){
-        operaciones.setOperador2(cajaResultado.getText().toString());
-        operaciones.cambiarComa();
-        cajaOperaciones.setText(operaciones.toString());
-        cajaResultado.setText(operaciones.getResultado());
+        if(!cajaRecogida.getText().toString().isEmpty()){
+            operaciones.setOperador2(cajaRecogida.getText().toString());
+            cajaOperaciones.setText(operaciones.toString());
+            cajaRecogida.setText(operaciones.getResultado());
+        }
+
 
     }
 
     public void limpiarCajas(View click){
-        cajaResultado.setText(null);
+        cajaRecogida.setText(null);
         cajaOperaciones.setText(null);
     }
 
@@ -93,52 +92,52 @@ public class MainActivity extends AppCompatActivity {
         /*deberiamos crear un array con las operaciones y seguire
           realizando los calculos con un array de numeros para calclularlos
         */
-        if(cajaResultado.getText().equals(this.Resultado)){
-            cajaResultado.setText("0");
-            cajaOperaciones.setText("0");
-        }
 
             switch (click.getId()){
 
                 case R.id.bt0:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"0");
+                    setRecogida("0");
                     break;
                 case R.id.bt1:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"1");
+                    setRecogida("1");
                     break;
                 case R.id.bt2:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"2");
+                    setRecogida("2");
                     break;
                 case R.id.bt3:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"3");
+                    setRecogida("3");
                     break;
                 case R.id.bt4:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"4");
+                    setRecogida("4");
                     break;
                 case R.id.bt5:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"5");
+                    setRecogida("5");
                     break;
                 case R.id.bt6:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"6");
+                    setRecogida("6");
                     break;
                 case R.id.bt7:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"7");
+                    setRecogida("7");
                     break;
                 case R.id.bt8:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"8");
+                    setRecogida("8");
                     break;
                 case R.id.bt9:
-                    cajaResultado.setText(cajaResultado.getText().toString()+"9");
+                    setRecogida("9");
                     break;
                 case R.id.btPunto:
                     if(decimal){
-                        cajaResultado.setText(cajaResultado.getText().toString() + ",");
+                        setRecogida(",");
                         decimal = false;
                     }
 
                     break;
             }
 
+    }
+
+    public void setRecogida(String valor){
+        cajaRecogida.setText(cajaRecogida.getText().toString()+valor);
     }
 
     public void accionesBotonesM(View click) {
@@ -148,33 +147,34 @@ public class MainActivity extends AppCompatActivity {
                 operaciones.setMemoria(0);
                 break;
             case R.id.btMsuma:
-                float sumMemoria= Float.parseFloat(cajaResultado.getText().toString())+ operaciones.getMemoria();
+                float sumMemoria= Float.parseFloat(cajaRecogida.getText().toString())+ operaciones.getMemoria();
                 operaciones.setMemoria(sumMemoria);
                 break;
             case R.id.btMresta:
-                float restMemoria= Float.parseFloat(cajaResultado.getText().toString())- operaciones.getMemoria();
+                float restMemoria= Float.parseFloat(cajaRecogida.getText().toString())- operaciones.getMemoria();
                 operaciones.setMemoria(restMemoria);
                 cajaOperaciones.setText("M+");
 
                 break;
             case R.id.btMmostar:
-                cajaResultado.setText(String.valueOf(operaciones.getMemoria()));
+                cajaRecogida.setText(String.valueOf(operaciones.getMemoria()));
                 break;
         }
     }
 
-    public void sumar(){
+    public void tipoOperacion(String simbolo){
         if((operaciones.getOperador1()).equals("")){
-            operaciones.setOperador1(cajaResultado.getText().toString());
-            operaciones.setTipo("suma");
-            operaciones.setSimbolo("+");
-            this.decimal=true;
+            if(!cajaRecogida.getText().toString().isEmpty()){
+                operaciones.setOperador1(cajaRecogida.getText().toString());
+                operaciones.setSimbolo(simbolo);
+                this.decimal=true;
+            }
         }else{
-            operaciones.setTipo("suma");
-            operaciones.setSimbolo("+");
+            operaciones.setSimbolo(simbolo);
         }
         cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
-        cajaResultado.setText("");
-
+        cajaRecogida.setText("");
     }
+
+
 }
