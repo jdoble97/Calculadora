@@ -14,7 +14,7 @@ public class Operacion {
         operador1 = "";
         operador2 = "";
         resultado = "";
-        memoria = "";
+        memoria = "0";
     }
 
     public String getMemoria() {

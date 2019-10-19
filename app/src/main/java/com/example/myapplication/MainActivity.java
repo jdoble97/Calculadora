@@ -130,9 +130,6 @@ public class MainActivity extends AppCompatActivity {
         if (!cajaRecogida.getText().toString().isEmpty()) {
             operacionesMemoria = Double.parseDouble(cajaRecogida.getText().toString());
         }
-        if(operaciones.getMemoria().equals("")){
-            operaciones.setMemoria("0");
-        }
         switch (click.getId()) {
             //establecemos los valores en memoria
             case R.id.btMemoriaClear:
