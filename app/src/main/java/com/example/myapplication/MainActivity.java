@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void operaciones(View click) {
         switch (click.getId()) {
-            case R.id.btPorcentaje:
-                tipoOperacion("%");
-                cajaOperaciones.setText(operaciones.getResultadoPorcentaje());
-                break;
             case R.id.btSuma:
                 tipoOperacion("+");
                 //deberiamos volcar el resultado de la operacion en la variable resultado
@@ -72,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         cajaRecogida.setText("");
         cajaOperaciones.setText("");
         decimal = true;
+        operaciones.vaciar();
     }
 
     /**
@@ -130,23 +127,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void accionesBotonesM(View click) {
+        double operacionesMemoria = 0d;
+        if (!cajaRecogida.getText().toString().isEmpty()) {
+            operacionesMemoria = Double.parseDouble(cajaRecogida.getText().toString());
+        }
         switch (click.getId()) {
             //establecemos los valores en memoria
             case R.id.btMemoriaClear:
-                operaciones.setMemoria(0);
+                operaciones.setMemoria(0d);
+                limpiarCajas(click);
                 break;
             case R.id.btMsuma:
-                float sumMemoria = Float.parseFloat(cajaRecogida.getText().toString()) + operaciones.getMemoria();
-                operaciones.setMemoria(sumMemoria);
+                operacionesMemoria = operacionesMemoria + operaciones.getMemoria();
+                operaciones.setMemoria(operacionesMemoria);
                 break;
             case R.id.btMresta:
-                float restMemoria = Float.parseFloat(cajaRecogida.getText().toString()) - operaciones.getMemoria();
-                operaciones.setMemoria(restMemoria);
-                cajaOperaciones.setText("M+");
-
+                operacionesMemoria = operaciones.getMemoria() - operacionesMemoria;
+                operaciones.setMemoria(operacionesMemoria);
                 break;
+
             case R.id.btMmostar:
-                cajaRecogida.setText(String.valueOf(operaciones.getMemoria()));
+                cajaOperaciones.setText(Double.toString(operaciones.getMemoria()));
                 break;
         }
     }
@@ -170,15 +171,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void cambiarSigno(View view) {
         String numeroSigno = cajaRecogida.getText().toString();
-        if(!cajaRecogida.getText().toString().isEmpty()){
-            if('-'!=numeroSigno.charAt(0) && '+'==numeroSigno.charAt(0)){
-                numeroSigno = numeroSigno.replace("+","-");
-            }else if ('+'!=numeroSigno.charAt(0) && '-'==numeroSigno.charAt(0)){
-                numeroSigno = numeroSigno.replace("-","+");
-            }else{
-                numeroSigno = '-'+cajaRecogida.getText().toString();
+        if (!cajaRecogida.getText().toString().isEmpty()) {
+            if ('-' != numeroSigno.charAt(0) && '+' == numeroSigno.charAt(0)) {
+                numeroSigno = numeroSigno.replace("+", "-");
+            } else if ('+' != numeroSigno.charAt(0) && '-' == numeroSigno.charAt(0)) {
+                numeroSigno = numeroSigno.replace("-", "+");
+            } else {
+                numeroSigno = '-' + cajaRecogida.getText().toString();
             }
         }
         cajaRecogida.setText(numeroSigno);
+    }
+
+    public void porcentajeOperacion(View v) {
+        if (!cajaRecogida.getText().toString().isEmpty()) {
+            operaciones.setSimbolo("%");
+            operaciones.setOperador1(cajaRecogida.getText().toString());
+            cajaOperaciones.setText(operaciones.getResultado());
+            cajaRecogida.setText("");
+        }
+        operaciones.vaciar();
+
     }
 }
