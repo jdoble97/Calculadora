@@ -55,11 +55,9 @@ public class Operacion {
         this.tipo = tipo;
     }
 
-<<<<<<< HEAD
     public void setSimbolo(String temp){this.simbolo=temp;}
-=======
-    public void setSimboloOpreacion(String simbolo){this.simboloOpreacion=simbolo;}
->>>>>>> df863a827de1f78dd4e8bbf7112d23012de43331
+
+
 
     public String getSimbolo(){
         return this.simbolo;
@@ -74,8 +72,8 @@ public class Operacion {
         String result="";
         switch(simbolo){
             case "+":
-                int operacion = Integer.parseInt(operador1)+Integer.parseInt(operador2);
-                result = Integer.toString(operacion);
+                double operacion = Double.parseDouble(operador1)+Double.parseDouble(operador2);
+                result = Double.toString(operacion);
                 break;
             case "-":
                 break;

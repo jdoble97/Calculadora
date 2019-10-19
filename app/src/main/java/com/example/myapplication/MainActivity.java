@@ -29,16 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 mostrarResultado("Porcentaje");
                 break;
             case R.id.btSuma:
-                if((operaciones.getOperador1()).equals("")){
-                    operaciones.setOperador1(cajaResultado.getText().toString());
-                    operaciones.setTipo("suma");
-                    operaciones.setSimbolo("+");
-                }else{
-                    operaciones.setTipo("suma");
-                    operaciones.setSimbolo("+");
-                }
-                cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
-                cajaResultado.setText("");
+                sumar();
                 //deberiamos volcar el resultado de la operacion en la variable resultado
 
 
@@ -164,6 +155,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void sumar(){
-
+        if((operaciones.getOperador1()).equals("")){
+            operaciones.setOperador1(cajaResultado.getText().toString());
+            operaciones.setTipo("suma");
+            operaciones.setSimbolo("+");
+        }else{
+            operaciones.setTipo("suma");
+            operaciones.setSimbolo("+");
+        }
+        cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
+        cajaResultado.setText("");
     }
 }
