@@ -37,7 +37,6 @@
                 android:layout_height="105dp"
                 android:layout_span="4"
                 android:gravity="end"
-                android:hint="0"
                 android:textSize="40sp" />
         </TableRow>
 

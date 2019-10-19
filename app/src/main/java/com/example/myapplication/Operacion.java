@@ -94,7 +94,7 @@ public class Operacion {
         resultado = getOperacion();
         double numero = Double.parseDouble(resultado);
         double decimal = numero % 1;
-        if (decimal>0){
+        if (decimal>0 || decimal<0){
             if(idioma.equals(",")){
                 puntoToComa();
             }

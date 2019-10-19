@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     recogerNumeros("9");
                     break;
                 case R.id.btPunto:
-                    if(decimal){
+                    if(decimal && !cajaRecogida.getText().toString().isEmpty()){
                         recogerNumeros(",");
                         decimal = false;
                     }
@@ -170,12 +170,14 @@ public class MainActivity extends AppCompatActivity {
                 operaciones.setOperador1(cajaRecogida.getText().toString());
                 operaciones.setSimbolo(simbolo);
                 this.decimal=true;
+                cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
+                cajaRecogida.setText("");
             }
         }else{
             operaciones.setSimbolo(simbolo);
+            cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
+            cajaRecogida.setText("");
         }
-        cajaOperaciones.setText(operaciones.getOperador1()+operaciones.getSimbolo());
-        cajaRecogida.setText("");
     }
 
 }
