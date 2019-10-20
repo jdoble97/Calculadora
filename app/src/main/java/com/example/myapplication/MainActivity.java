@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView cajaRecogida;
     private String Resultado = "varResultado";
     private Operacion operaciones = new Operacion();
-    private float Memoria;
     private boolean decimal = true;
     private String lenguaje;
     private Button punto;
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btPunto:
                 if (decimal && !cajaRecogida.getText().toString().isEmpty()) {
-                    recogerNumeros(",");
+                    recogerNumeros(lenguaje);
                     decimal = false;
                 }
                 break;
@@ -118,9 +117,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Sigue aumentando los valores despues de cada click de cada número
-     */
     public void recogerNumeros(String valor) {
         cajaRecogida.setText(cajaRecogida.getText().toString() + valor);
     }
@@ -128,23 +124,31 @@ public class MainActivity extends AppCompatActivity {
     public void accionesBotonesM(View click) {
         double operacionesMemoria = 0d;
         if (!cajaRecogida.getText().toString().isEmpty()) {
-            operacionesMemoria = Double.parseDouble(cajaRecogida.getText().toString());
+            String temporal = cajaRecogida.getText().toString();
+            temporal = temporal.replace(",",".");
+            operacionesMemoria = Double.parseDouble(temporal);
         }
         switch (click.getId()) {
             //establecemos los valores en memoria
             case R.id.btMemoriaClear:
-                operaciones.setMemoria(String.valueOf(0));
+                operaciones.setMemoria("0");
                 limpiarCajas(click);
                 break;
             case R.id.btMsuma:
-                operacionesMemoria=operacionesMemoria+Double.parseDouble(operaciones.getMemoria());
-                operaciones.setMemoria(String.valueOf(operacionesMemoria));
-                limpiarCajas(click);
+                if(!cajaRecogida.getText().toString().isEmpty()){
+                    operacionesMemoria=operacionesMemoria+Double.parseDouble(operaciones.getMemoria().
+                            replace(",","."));
+                    operaciones.setMemoria(String.valueOf(operacionesMemoria));
+                    limpiarCajas(click);
+                }
                 break;
             case R.id.btMresta:
-                operacionesMemoria=Double.parseDouble(operaciones.getMemoria())-operacionesMemoria;
-                operaciones.setMemoria(String.valueOf(operacionesMemoria));
-                limpiarCajas(click);
+                if(!cajaRecogida.getText().toString().isEmpty()){
+                    operacionesMemoria=Double.parseDouble(operaciones.getMemoria()
+                            .replace(",","."))-operacionesMemoria;
+                    operaciones.setMemoria(String.valueOf(operacionesMemoria));
+                    limpiarCajas(click);
+                }
                 break;
             case R.id.btMmostar:
                     cajaOperaciones.setText(operaciones.getMemoria());
@@ -182,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
         }
         cajaRecogida.setText(numeroSigno);
     }
-
     public void porcentajeOperacion(View v) {
         if (!cajaRecogida.getText().toString().isEmpty()) {
             operaciones.setSimbolo("%");
