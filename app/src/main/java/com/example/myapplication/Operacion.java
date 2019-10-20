@@ -18,11 +18,12 @@ public class Operacion {
     }
 
     public String getMemoria() {
+        comaToPunto();
         double numero = Double.parseDouble(this.memoria);
         double decimal = numero % 1;
         if (decimal>0 || decimal<0){
             if(idioma.equals(",")){
-                this.memoria=this.memoria.replace(".",",");
+                puntoToComa();
             }
             return this.memoria;
         }else{
