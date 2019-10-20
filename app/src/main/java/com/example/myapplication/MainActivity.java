@@ -29,49 +29,9 @@ public class MainActivity extends AppCompatActivity {
         operaciones.setIdioma(lenguaje);
     }
 
-    public void operaciones(View click) {
-        switch (click.getId()) {
-            case R.id.btSuma:
-                tipoOperacion("+");
-                break;
-            case R.id.btResta:
-                tipoOperacion("-");
-                break;
-            case R.id.btMultiplicar:
-                tipoOperacion("*");
-                break;
-            case R.id.btDivision:
-                tipoOperacion("/");
-                break;
-
-        }
-    }
-
     /**
-     * realiza las operaciones en la clase y muestra la operacion en las cajas
-     * ademas pone la la variable de coma en false
-     */
-    public void hacerOperacion(View v) {
-        if (!cajaRecogida.getText().toString().isEmpty() && !operaciones.getOperador1().isEmpty()) {
-            operaciones.setOperador2(cajaRecogida.getText().toString());
-            cajaOperaciones.setText(operaciones.getResultado());
-            cajaRecogida.setText("");
-            operaciones.vaciar();
-            decimal = true;
-
-        }
-    }
-
-    public void limpiarCajas(View click) {
-        cajaRecogida.setText("");
-        cajaOperaciones.setText("");
-        decimal = true;
-        operaciones.vaciar();
-    }
-
-    /**
-     * deberiamos crear un array con las operaciones y seguire
-     * realizando los calculos con un array de numeros para calclularlo.
+     *Función asignada a los onclick de los botones que sirve para mostrar dicho boton en
+     * la pantalla
      */
     public void ingresarNumeros(View click) {
         switch (click.getId()) {
@@ -116,11 +76,67 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Función onclick asignada a los botones de estos simbolos  de definir el tipo de operación
+     * que se va a hacer
+     * @param click
+     */
+    public void operaciones(View click) {
+        switch (click.getId()) {
+            case R.id.btSuma:
+                tipoOperacion("+");
+                break;
+            case R.id.btResta:
+                tipoOperacion("-");
+                break;
+            case R.id.btMultiplicar:
+                tipoOperacion("*");
+                break;
+            case R.id.btDivision:
+                tipoOperacion("/");
+                break;
 
+        }
+    }
+
+    /**
+     * realiza las operaciones en la clase y muestra la operacion en las cajas
+     * ademas pone la la variable de coma en false
+     */
+    public void hacerOperacion(View v) {
+        if (!cajaRecogida.getText().toString().isEmpty() && !operaciones.getOperador1().isEmpty()) {
+            operaciones.setOperador2(cajaRecogida.getText().toString());
+            cajaOperaciones.setText(operaciones.getResultado());
+            cajaRecogida.setText("");
+            operaciones.vaciar();
+            decimal = true;
+
+        }
+    }
+
+    /**
+     * Función encargada de vaciar los textviews
+     * @param click
+     */
+    public void limpiarCajas(View click) {
+        cajaRecogida.setText("");
+        cajaOperaciones.setText("");
+        decimal = true;
+        operaciones.vaciar();
+    }
+
+    /**
+     * Función encargada de mostrar en pantalla los numeros o coma que se están pulsando
+     * @param valor
+     */
     public void recogerNumeros(String valor) {
         cajaRecogida.setText(cajaRecogida.getText().toString() + valor);
     }
 
+    /**
+     * Función onclick encargada de darle funciones a los botones M.
+     * @param click
+     */
     public void accionesBotonesM(View click) {
         double operacionesMemoria = 0d;
         if (!cajaRecogida.getText().toString().isEmpty()) {
@@ -156,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Función encargada de cambiar el contenido de la caja operaciones y el tipo de operación
+     * que se va a hacer
+     * @param simbolo
+     */
     public void tipoOperacion(String simbolo) {
         if ((operaciones.getOperador1()).equals("")) {
             if (!cajaRecogida.getText().toString().isEmpty()) {
@@ -172,7 +193,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Función onclick que se encarga de cambiar el signo del numero
+     * @param view
+     */
     public void cambiarSigno(View view) {
         String numeroSigno = cajaRecogida.getText().toString();
         if (!cajaRecogida.getText().toString().isEmpty()) {
@@ -186,6 +210,11 @@ public class MainActivity extends AppCompatActivity {
         }
         cajaRecogida.setText(numeroSigno);
     }
+
+    /**
+     * Funcion onclick asignada al boton % que hace justo esta operación
+     * @param v
+     */
     public void porcentajeOperacion(View v) {
         if (!cajaRecogida.getText().toString().isEmpty()) {
             operaciones.setSimbolo("%");
