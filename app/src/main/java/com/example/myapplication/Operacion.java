@@ -112,10 +112,16 @@ public class Operacion {
                 result = Double.toString(operacion);
                 break;
             case "/":
-                try{
-                operacion = Double.parseDouble(operador1)/Double.parseDouble(operador2);
-                result = Double.toString(operacion);
-                catch(Exception e) {
+                if(operador2.equals("0")){
+                    if(operador1.equals("0")){
+                        operacion = Double.parseDouble(operador1) / Double.parseDouble(operador2);
+                        result = Double.toString(operacion);
+                    }else{
+                        result = "Error";
+                    }
+                }else{
+                    operacion = Double.parseDouble(operador1) / Double.parseDouble(operador2);
+                    result = Double.toString(operacion);
                 }
                 break;
             case "%":
@@ -131,6 +137,9 @@ public class Operacion {
      * */
     public String getResultado(){
         resultado = getOperacion();
+        if(resultado.equals("Error")){
+            return resultado;
+        }
         double numero = Double.parseDouble(resultado);
         double decimal = numero % 1;
         if (decimal>0 || decimal<0){
