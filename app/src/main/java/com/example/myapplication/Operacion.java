@@ -112,8 +112,11 @@ public class Operacion {
                 result = Double.toString(operacion);
                 break;
             case "/":
+                try{
                 operacion = Double.parseDouble(operador1)/Double.parseDouble(operador2);
                 result = Double.toString(operacion);
+                catch(Exception e) {
+                }
                 break;
             case "%":
                 operacion = Double.parseDouble(operador1)/100;
